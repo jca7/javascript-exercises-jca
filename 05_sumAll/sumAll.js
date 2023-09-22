@@ -14,11 +14,23 @@
 
 const sumAll = function(firstNumber, secondNumber) {
   let totalSum = 0;
-  for (let i = firstNumber; i <= secondNumber; i++) {
-    totalSum = totalSum + i;
-    console.log(totalSum);
+  if (firstNumber < 0 || secondNumber < 0) {
+    return 'ERROR'
+  } 
+  else if (Number.isInteger(firstNumber) === false || Number.isInteger(secondNumber) === false) {
+    return 'ERROR';
   }
-  console.log(totalSum);
+  else if (firstNumber < secondNumber) {
+    for (let i = firstNumber; i <= secondNumber; i++) {
+      totalSum += i;
+    }
+  }
+  else if (secondNumber < firstNumber) {
+    for (let i = secondNumber; i <= firstNumber; i++) {
+      totalSum += i;
+    }
+  }
+  return totalSum;
 };
 
 
